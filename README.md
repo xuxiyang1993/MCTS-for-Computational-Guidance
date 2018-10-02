@@ -4,6 +4,8 @@ A Python implementation of the algorithm proposed in paper "Autonomous On-Demand
 
 https://www.researchgate.net/publication/327174624_Autonomous_On-Demand_Free_Flight_Operations_in_Urban_Air_Mobility_using_Monte_Carlo_Tree_Search
 
+A short video demo of this algorithm: https://www.youtube.com/watch?v=UARP_-RnubA
+
 ## Requirements
 
 * python 3.6
