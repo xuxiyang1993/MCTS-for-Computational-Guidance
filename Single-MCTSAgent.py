@@ -531,7 +531,7 @@ class GoalSprite(pygame.sprite.Sprite):
     """
     def __init__(self, position):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('images/goal1.png')
+        self.image = pygame.image.load('images/goal.png')
         self.rect = self.image.get_rect()
         self.position = position  # initial position
         self.radius = 16
