@@ -455,7 +455,7 @@ def collision_goal(count):
     screen.blit(text, (5, 90))
 
 
-class Dronesprite(pygame.sprite.Sprite):
+class DroneSprite(pygame.sprite.Sprite):
     """
     the drone sprite used to describe the ownship object
     """
@@ -612,7 +612,7 @@ for _ in range(intruder_size):
                           random.random() * 360))
 
 rect = screen.get_rect()
-ownship = Dronesprite(rect.center)  # generate a ownship in the center
+ownship = DroneSprite(rect.center)  # generate a ownship in the center
 car_group = pygame.sprite.RenderPlain(ownship)  # ownship group
 pad_group = pygame.sprite.RenderPlain(*pads)  # intruder group
 goal_group = pygame.sprite.RenderPlain(goal)  # goal group
@@ -677,7 +677,8 @@ while simulate:
             x = intruder.position[0]
             y = intruder.position[1]
             # check if there is collision with each intruder aircraft
-            if pygame.sprite.collide_circle(ownship, intruder):
+            # if pygame.sprite.collide_circle(ownship, intruder):
+            if dist(ownship, intruder) < ownship.radius + intruder.radius:
                 collide_intruder = True
                 ownship.collision_intruder += 1
                 reset_intruder(intruder)
@@ -687,7 +688,8 @@ while simulate:
                 reset_intruder(intruder)
 
         # check if ownship reaches goal state.
-        if pygame.sprite.collide_circle(ownship, goal):
+        # if pygame.sprite.collide_circle(ownship, goal):
+        if dist(ownship, goal) < ownship.radius + goal.radius:
             # start a new episode
             collide_goal = True
             ownship.collision_goal += 1
